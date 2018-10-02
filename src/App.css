@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 .App {
   text-align: center;
 }
@@ -30,3 +32,22 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-color: #ecf0f1;
+  font-family: Montserrat;
+}
+
+#navBar {
+  background-color: #0a1612;
+  height: 40px;
+}
+
+#navBar a {
+  float: left;
+  margin-right: 20px;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #ecf0f1;
+}
+
