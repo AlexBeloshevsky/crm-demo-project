@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import SearchAndPagination from './searchandpagination';
+import ClientsTableTitle from './ClientsTableTitle';
+import ClientItem from './clientitem';
 
 class Clients extends Component {
+
+  generateClientList() {
+    let clientList = this.props.clientList;
+    return clientList.map(c => {
+      return (<ClientItem
+        key={c._id}
+        singleClient={c}
+        />)
+    })
+  }
 
   render() {
     return (
       <div className="clients">
-      clients
+      <SearchAndPagination/>
+        <ClientsTableTitle/>
+        {this.generateClientList()}
       </div> 
     )
   }
