@@ -20,6 +20,15 @@ class App extends Component {
     }
   }
 
+  updateClient = (info) => {
+    let newState = {...this.state};
+    // console.log(this.state.clients.find(x => x._id === info.original._id));
+    let newClient = newState.clients.find(x => x._id === info.original._id);
+    newClient.country = info.row.country;
+    newClient.name = `${info.row.firstName} ${info.row.lastName}`;
+    this.setState(newState);
+  }
+
   componentDidMount() {
     setTimeout(() => {
       let data = require('./data.json');
@@ -55,6 +64,7 @@ class App extends Component {
             render={() =>
               <Clients 
               clientList={this.state.clients}
+              updateClient={this.updateClient}
               />}
           />
           <Route path="/actions" exact
