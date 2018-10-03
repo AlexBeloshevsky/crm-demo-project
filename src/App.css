@@ -70,3 +70,42 @@ body {
   box-shadow: none;
   outline: 0;
 }
+
+.actions {
+  padding: 25px 25px 0 25px;
+  text-align: left;
+}
+
+.actions p span {
+  width: 200px;
+  display: inline-block;
+}
+
+.actions p input[type=text] {
+  background-color: #ecf0f1;
+  border: none;
+  border-bottom: 1px solid lightgray;
+}
+
+.yellowButton {
+  background-color: #F7CE3E;
+  width: 290px;
+  height: 50px;
+  font-size: 24px;
+  border: none;
+  border-radius: 8px;
+}
+
+.updateDiv p input {
+  margin-right: 50px;
+}
+
+.declareButton {
+  margin-left: 220px;
+}
+.updateDiv button {
+  color: #F7CE3E;
+  border: none;
+  background-color: #ecf0f1;
+  font-weight: bold;
+}

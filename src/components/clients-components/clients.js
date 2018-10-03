@@ -148,12 +148,12 @@ class Clients extends Component {
       <Modal open={modalOpen} onClose={this.onCloseModal} center>
       {this.state.clickedClient.row ? (
         <div>
-      <h3>Name: <span>{this.state.clickedClient.row.firstName}</span></h3>
-      <h3>Update Name to: <input type="text" value={this.state.clickedClient.row.firstName} name="firstName" onChange={this.updateFirstName}></input></h3>
-      <h3>Surname: <span>{this.state.clickedClient.row.lastName}</span></h3>
-      <h3>Update Surname to: <input type="text" value={this.state.clickedClient.row.lastName} name="lastName" onChange={this.updateLastName}></input></h3>
-      <h3>Country: <span>{this.state.clickedClient.row.country}</span></h3>
-      <h3>Update Country to: <input type="text" value={this.state.clickedClient.row.country} name="country" onChange={this.updateCountry}></input></h3>
+      {/* <h3>Name: <span>{this.state.clickedClient.row.firstName}</span></h3> */}
+      <h3>Name: <input className="modalInput" type="text" value={this.state.clickedClient.row.firstName} name="firstName" onChange={this.updateFirstName}></input></h3>
+      {/* <h3>Surname: <span>{this.state.clickedClient.row.lastName}</span></h3> */}
+      <h3>Surname: <input className="modalInput" type="text" value={this.state.clickedClient.row.lastName} name="lastName" onChange={this.updateLastName}></input></h3>
+      {/* <h3>Country: <span>{this.state.clickedClient.row.country}</span></h3> */}
+      <h3>country: <input className="modalInput" type="text" value={this.state.clickedClient.row.country} name="country" onChange={this.updateCountry}></input></h3>
       <button className="modalButton" onClick={this.updateClient}>Update</button>
       </div>
       ) : "" }
@@ -165,7 +165,7 @@ render() {
 
   
   return (
-    <div>
+    <div className="clients">
   {this.getModal()}
   {this.getTable()}
   </div>

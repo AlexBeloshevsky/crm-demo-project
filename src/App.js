@@ -16,8 +16,23 @@ class App extends Component {
     super();
     this.state = {
       clients: [],
+      owners:[],
       loading: true
     }
+  }
+
+  guid = () => {
+    function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+  }
+
+  nowDate = () => {
+    let date = new Date();
+    return date;
   }
 
   updateClient = (info) => {
@@ -29,11 +44,50 @@ class App extends Component {
     this.setState(newState);
   }
 
+  addClient = (data) => {
+    let newState = {...this.state};
+    let newClient = {
+      _id: this.guid(),
+      name: `${data.firstName} ${data.lastName}`,
+      email: "",
+      firstContact: this.nowDate(),
+      emailType: "",
+      sold: false,
+      owner: data.owner,
+      country: data.country 
+    }
+    newState.clients.push(newClient);
+    this.setState(newState);
+    console.log(this.state);
+  }
+
+  declareSale = (client) => {
+    let newState = {...this.state};
+    let clientToChange = newState.clients.find(x => x._id === client._id);
+    clientToChange.sold = true;
+    this.setState(newState);
+  }
+
+  sendEmailToClient = (client, emailOption) => {
+    let newState = {...this.state};
+    let clientToChange = newState.clients.find(x => x._id === client._id);
+    clientToChange.emailType = emailOption;
+    this.setState(newState);
+  }
+
+  changeClientOwner = (client, owner) => {
+    let newState = {...this.state};
+    let clientToChange = newState.clients.find(x => x._id === client._id);
+    clientToChange.owner = owner;
+    this.setState(newState);
+  }
+
   componentDidMount() {
     setTimeout(() => {
       let data = require('./data.json');
       let newState = { ...this.state };
       newState.clients = data;
+      newState.owners = [...new Set(data.map(c => c.owner))]; 
       newState.loading = false;
       this.setState(newState);
     }, 100)
@@ -69,7 +123,14 @@ class App extends Component {
           />
           <Route path="/actions" exact
             render={() =>
-              <Actions />}
+              <Actions
+              addClient={this.addClient}
+              clientList={this.state.clients}
+              ownerList={this.state.owners}
+              declareSale={this.declareSale}
+              sendEmailToClient={this.sendEmailToClient}
+              changeClientOwner={this.changeClientOwner}
+              />}
           />
           <Route path="/analytics" exact
             render={() =>
