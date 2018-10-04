@@ -7,6 +7,7 @@ import NavBar from "./components/navBar";
 import Clients from './components/clients-components/clients';
 import Actions from './components/actions-components/actions';
 import Analytics from './components/analytics-components/analytics';
+import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 const override ='';
 
@@ -134,7 +135,10 @@ class App extends Component {
           />
           <Route path="/analytics" exact
             render={() =>
-              <Analytics />}
+              <Analytics 
+              clientList={this.state.clients}
+              ownerList={this.state.owners}
+              />}
           />
         </div>
       </Router>

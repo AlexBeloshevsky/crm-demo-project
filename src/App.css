@@ -58,6 +58,10 @@ body {
   margin: 200px auto 0 auto;
 }
 
+.myLoaderBadgeCSS {
+  margin-top: 40px;
+}
+
 .selectedTab {
   height: 30px;
   background-color: darkgray;
@@ -108,4 +112,58 @@ body {
   border: none;
   background-color: #ecf0f1;
   font-weight: bold;
+}
+
+.badgesDiv {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.badgeDiv {
+  display: inline-block;
+  height: 150px;
+}
+.badgeDiv p{
+  font-weight: bold;
+}
+
+.newClientsBadge{
+  background-color: #2ecc71;
+  color: #ecf0f1;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 20px;
+  float: left;
+}
+.emailsSentBadge{
+  background-color: #3498db;
+  color: #ecf0f1;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 20px;
+  float: left;
+}
+.outstandingClientsBadge{
+  background-color: #e74c3c;
+  color: #ecf0f1;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 20px;
+  float: left;
+}
+.hottestCountryBadge{
+  background-color: #f1c40f;
+  color: #ecf0f1;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 20px;
+  float: left;
 }
