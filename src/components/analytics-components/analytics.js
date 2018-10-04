@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Badges from './badges';
+import Charts from './charts';
 
 class Analytics extends Component {
 
@@ -9,7 +10,9 @@ class Analytics extends Component {
       <Badges
       clientList={this.props.clientList}
       />
-      {/* <i className="fa fa-spinner fa-spin"></i> */}
+      <Charts
+      clientList={this.props.clientList}
+      />
       </div> 
     )
   }
