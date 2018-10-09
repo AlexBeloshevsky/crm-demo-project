@@ -39,7 +39,6 @@ class Badges extends Component {
   getSingleBadges = () => {
     return (this.state.badges).map((item, index) => {
       let loadingBoolean = item.loading;
-      console.log(item.loading)
       return (
         loadingBoolean ? (
           <div className="myLoaderBadgeCSS" key={index}>
@@ -135,6 +134,7 @@ class Badges extends Component {
   }
 
   populateState = () => {
+    // console.log(this.props.clientList)
     let data = this.props.clientList;
     this.createNewClientBadgeData(data);
     this.createEmailsSentBadgeData(data);
@@ -143,9 +143,15 @@ class Badges extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    // console.log(this.props.clientList)
     if (this.props.clientList !== prevProps.clientList) {
       this.populateState();
     }
+  }
+  componentDidMount(){
+    if (this.props.clientList.length !== 0) {
+    this.populateState()
+    };
   }
 
   render() {

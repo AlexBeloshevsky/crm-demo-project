@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TopEmployeesChart from './topEmployeesChart';
 import SalesByCountryChart from './salesByCountry';
 import SalesByDateChart from './salesByDate';
+import ClientAcquisitionPieChart from  './ClientAcquisitionPieChart';
 
 class Charts extends Component {
 
@@ -29,12 +30,13 @@ class Charts extends Component {
       return o[b.item] - o[a.item];
     });
     newState = a.slice(0, 3);
+    // console.log(newState.topEmployees);
     this.setState({ topEmployees: newState });
   }
 
   createSalesByCountryData = (data) => {
     let newState = { ...this.state.salesByCountry };
-    console.log(this.state)
+    // console.log(this.state)
     var sld, itm, a = [], L = data.length, o = {};
     for (var i = 0; i < L; i++) {
       itm = data[i].country;
@@ -52,7 +54,6 @@ class Charts extends Component {
   }
 
   createSalesInLastThirtyDaysData = (data) => {
-    let newState = { ...this.state.salesInLastThirtyDays };
     let resultArray = [];
     let today = new Date();
     let year = today.getFullYear();
@@ -91,6 +92,12 @@ class Charts extends Component {
       }
     }
 
+    componentDidMount(){
+      if (this.props.clientList.length !== 0) {
+      this.createChartData();
+      };
+    }
+
     render() {
       return (
         <div className="charts">
@@ -103,6 +110,7 @@ class Charts extends Component {
           <SalesByDateChart
             salesByDate={this.state.salesByDate}
           />
+          <ClientAcquisitionPieChart/>
         </div>
       )
     }

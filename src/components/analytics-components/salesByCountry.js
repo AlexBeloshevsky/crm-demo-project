@@ -5,7 +5,7 @@ class SalesByCountryChart extends Component {
 
   render() {
     let data = this.props.salesByCountry;
-    console.log(this.props.salesByCountry)
+    // console.log(this.props.salesByCountry)
       return (
         <BarChart className="chart" width={600} height={300} data={data}
               margin={{top: 5, right: 30, left: 20, bottom: 5}}>
