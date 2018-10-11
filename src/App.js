@@ -38,6 +38,7 @@ class App extends Component {
   }
 
   updateClient = (info) => {
+    console.log(info);
     // let newState = { ...this.state };
     // console.log(info.original._id);
     // // console.log(this.state.clients.find(x => x._id === info.original._id));
@@ -49,6 +50,18 @@ class App extends Component {
     Axios.post('http://localhost:8080/clients/' + clientID, info)
     .then((data)=> {
       console.log(info);
+      this.getData()
+    })
+    .catch((err)=> {
+      console.log(err)
+    })
+  }
+
+  changeClientDataFromActionsTab = (info) => {
+    // console.log(info);
+    let clientID = info._id;
+    Axios.post('http://localhost:8080/actions/' + clientID, info)
+    .then((data)=> {
       this.getData()
     })
     .catch((err)=> {
@@ -74,26 +87,26 @@ class App extends Component {
       });
   }
 
-  declareSale = (client) => {
-    let newState = { ...this.state };
-    let clientToChange = newState.clients.find(x => x._id === client._id);
-    clientToChange.sold = true;
-    this.setState(newState);
-  }
+  // declareSale = (client) => {
+  //   let newState = { ...this.state };
+  //   let clientToChange = newState.clients.find(x => x._id === client._id);
+  //   clientToChange.sold = true;
+  //   this.setState(newState);
+  // }
 
-  sendEmailToClient = (client, emailOption) => {
-    let newState = { ...this.state };
-    let clientToChange = newState.clients.find(x => x._id === client._id);
-    clientToChange.emailType = emailOption;
-    this.setState(newState);
-  }
+  // sendEmailToClient = (client, emailOption) => {
+  //   let newState = { ...this.state };
+  //   let clientToChange = newState.clients.find(x => x._id === client._id);
+  //   clientToChange.emailType = emailOption;
+  //   this.setState(newState);
+  // }
 
-  changeClientOwner = (client, owner) => {
-    let newState = { ...this.state };
-    let clientToChange = newState.clients.find(x => x._id === client._id);
-    clientToChange.owner = owner;
-    this.setState(newState);
-  }
+  // changeClientOwner = (client, owner) => {
+  //   let newState = { ...this.state };
+  //   let clientToChange = newState.clients.find(x => x._id === client._id);
+  //   clientToChange.owner = owner;
+  //   this.setState(newState);
+  // }
 
   componentDidMount() {
     this.getData();
@@ -150,7 +163,7 @@ class App extends Component {
                 ownerList={this.state.owners}
                 declareSale={this.declareSale}
                 sendEmailToClient={this.sendEmailToClient}
-                changeClientOwner={this.changeClientOwner}
+                changeClientDataFromActionsTab={this.changeClientDataFromActionsTab}
               />}
           />
           <Route path="/analytics" exact

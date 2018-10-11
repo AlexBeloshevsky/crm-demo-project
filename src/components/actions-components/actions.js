@@ -14,7 +14,7 @@ class Actions extends Component {
       ownerList={this.props.ownerList}
       declareSale={this.props.declareSale}
       sendEmailToClient={this.props.sendEmailToClient}
-      changeClientOwner={this.props.changeClientOwner}
+      changeClientDataFromActionsTab={this.props.changeClientDataFromActionsTab}
       />
       <AddClientSegment
       addClient={this.props.addClient}

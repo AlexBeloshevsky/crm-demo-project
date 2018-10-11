@@ -90,6 +90,27 @@ app.post('/clients/:clientID', (req, res, err) => {
   })
 })
 
+app.post('/actions/:clientID', (req, res, err) => {
+  if (err) {
+    console.log(err);
+  }
+  Client.findOneAndUpdate({"_id":req.params.clientID}, {$set:{
+    owner:req.body.owner,
+    emailType:req.body.emailOption,
+    sold:req.body.sold
+    // name: `${req.body.row.firstName} ${req.body.row.lastName}`
+  }}, {new: true})
+  .exec((err, client) => {
+    if (err) {
+      console.log(err);
+      res.send('Err')
+    }
+    // client.name = `${req.params.row.firstName} ${req.params.row.lastName}`;
+    // client.country ='india';
+    res.send(client);
+  })
+})
+
 app.listen(SERVER_PORT, () => {
   console.log("Server started on port " + SERVER_PORT);
 });
