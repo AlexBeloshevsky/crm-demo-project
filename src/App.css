@@ -2,6 +2,7 @@
 
 .App {
   text-align: center;
+  width: 100%;
 }
 
 .App-logo {
@@ -168,6 +169,28 @@ body {
   float: left;
 }
 
-.chart {
+/* .chart {
   float: left;
+} */
+
+.charts {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
 }
+
+/* .chartDisplay {
+  gri
+} */
+
+.hiddenPie {
+ margin-left: 15%;
+ margin-top: 5%;
+}
+
+/* .analytics {
+  width: 80%;
+  padding-left: 10%;
+} */

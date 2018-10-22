@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TopEmployeesChart from './topEmployeesChart';
 import SalesByCountryChart from './salesByCountry';
 import SalesByDateChart from './salesByDate';
-import ClientAcquisitionPieChart from  './ClientAcquisitionPieChart';
+import ClientAcquisitionPieChart from './ClientAcquisitionPieChart';
 
 class Charts extends Component {
 
@@ -74,48 +74,48 @@ class Charts extends Component {
       }
       resultArray.push(result);
     }
-    this.setState({ salesByDate: resultArray})
+    this.setState({ salesByDate: resultArray })
     // console.log(resultArray);
   }
 
-    createChartData = () => {
-      let data = this.props.clientList;
-      this.createTopEmployeesData(data);
-      this.createSalesByCountryData(data);
-      this.createSalesInLastThirtyDaysData(data);
-    }
-
-
-    componentDidUpdate(prevProps) {
-      if (this.props.clientList !== prevProps.clientList) {
-        this.createChartData();
-      }
-    }
-
-    componentDidMount(){
-      if (this.props.clientList.length !== 0) {
-      this.createChartData();
-      };
-    }
-
-    render() {
-      return (
-        <div className="charts">
-          <TopEmployeesChart
-            topEmployees={this.state.topEmployees}
-          />
-          <SalesByCountryChart
-            salesByCountry={this.state.salesByCountry}
-          />
-          <SalesByDateChart
-            salesByDate={this.state.salesByDate}
-          />
-          <ClientAcquisitionPieChart/>
-        </div>
-      )
-    }
-
+  createChartData = () => {
+    let data = this.props.clientList;
+    this.createTopEmployeesData(data);
+    this.createSalesByCountryData(data);
+    this.createSalesInLastThirtyDaysData(data);
   }
 
 
-  export default Charts;
+  componentDidUpdate(prevProps) {
+    if (this.props.clientList !== prevProps.clientList) {
+      this.createChartData();
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.clientList.length !== 0) {
+      this.createChartData();
+    };
+  }
+
+  render() {
+    return (
+      <div className="charts">
+        <TopEmployeesChart
+          topEmployees={this.state.topEmployees}
+        />
+        <SalesByCountryChart
+          salesByCountry={this.state.salesByCountry}
+        />
+        <SalesByDateChart
+          salesByDate={this.state.salesByDate}
+        />
+        <ClientAcquisitionPieChart />
+      </div>
+    )
+  }
+
+}
+
+
+export default Charts;

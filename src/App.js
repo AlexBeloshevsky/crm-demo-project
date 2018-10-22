@@ -120,7 +120,7 @@ class App extends Component {
         newState.clients = response.data;
         newState.owners = [...new Set(response.data.map(c => c.owner))];
         newState.loading = false;
-        this.setState(newState);
+        this.setState(newState);  
       })
       .catch(function (error) {
         console.log(error);
