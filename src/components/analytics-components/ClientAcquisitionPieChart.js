@@ -4,8 +4,8 @@ import {ResponsiveContainer, PieChart, Pie, Legend } from 'recharts';
 class ClientAcquisitionPieChart extends Component {
 
   render() {
-    const data01 = [{ name: 'Group A', value: 400 }, { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 300 }, { name: 'Group D', value: 200 }]
+    const data01 = [{ name: 'Email A', value: 400 }, { name: 'Email B', value: 300 },
+    { name: 'Email C', value: 300 }, { name: 'Email D', value: 200 }]
     return (
       <div className="hiddenPie">
         {/* <ResponsiveContainer width="100%"> */}
