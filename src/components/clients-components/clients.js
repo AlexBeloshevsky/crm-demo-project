@@ -165,7 +165,7 @@ render() {
 
   
   return (
-    <div className="clients">
+    <div className="clients"> 
   {this.getModal()}
   {this.getTable()}
   </div>
